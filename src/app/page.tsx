@@ -1,10 +1,16 @@
 /**
  * Homepage
- * Main landing page with hero and sections.
+ * Main landing page with all sections.
  */
 
 import { Navbar, Footer } from '@/components/layout';
-import { Hero } from '@/components/sections';
+import {
+  Hero,
+  ClientsSection,
+  FeaturesSection,
+  TestimonialsSection,
+  CTASection,
+} from '@/components/sections';
 
 export default function HomePage() {
   return (
@@ -13,13 +19,10 @@ export default function HomePage() {
 
       <main className="flex-1">
         <Hero />
-        {/* More sections will be added here */}
-        {/* <ClientsSection /> */}
-        {/* <FeaturesSection /> */}
-        {/* <HowItWorksSection /> */}
-        {/* <TestimonialsSection /> */}
-        {/* <PricingPreviewSection /> */}
-        {/* <CTASection /> */}
+        <ClientsSection />
+        <FeaturesSection />
+        <TestimonialsSection />
+        <CTASection />
       </main>
 
       <Footer />
