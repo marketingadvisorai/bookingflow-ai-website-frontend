@@ -1,0 +1,6 @@
+/**
+ * Barrel export for shared components.
+ */
+
+export { ThemeProvider } from './ThemeProvider';
+export { ThemeToggle } from './ThemeToggle';

@@ -1,26 +1,158 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:is(.dark *));
+
 :root {
+  --font-size: 16px;
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: oklch(0.145 0 0);
+  --card: #ffffff;
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: #635BFF;
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.95 0.0058 264.53);
+  --secondary-foreground: #030213;
+  --muted: #ececf0;
+  --muted-foreground: #717182;
+  --accent: #e9ebef;
+  --accent-foreground: #030213;
+  --destructive: #d4183d;
+  --destructive-foreground: #ffffff;
+  --border: rgba(0, 0, 0, 0.1);
+  --input: transparent;
+  --input-background: #f3f3f5;
+  --ring: #635BFF;
+  --radius: 0.625rem;
+}
+
+.dark {
+  /* BookingFlow AI Dark Mode - Purple Brand */
+  --background: #0a0a0f;
+  --foreground: #f5f5f7;
+  --card: #131318;
+  --card-foreground: #f5f5f7;
+  --popover: #16161d;
+  --popover-foreground: #f5f5f7;
+  --primary: #635BFF;
+  --primary-foreground: #ffffff;
+  --secondary: #1e1e28;
+  --secondary-foreground: #e4e4e7;
+  --muted: #1e1e28;
+  --muted-foreground: #a1a1aa;
+  --accent: #1e1e28;
+  --accent-foreground: #f5f5f7;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #27272a;
+  --input: transparent;
+  --input-background: #1a1a22;
+  --ring: #635BFF;
+  
+  /* Extended Dark Mode Palette */
+  --elevated: #1a1a22;
+  --surface: #16161d;
+  --text-primary: #f5f5f7;
+  --text-secondary: #d1d1d6;
+  --text-tertiary: #a1a1aa;
+  --purple-accent: #7c72ff;
+  --purple-accent-hover: #9a92ff;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }
 
+html {
+  font-size: var(--font-size);
+  scroll-behavior: smooth;
+}
+
+/* BookingFlow AI - System Font Stack */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  letter-spacing: -0.011em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: -0.025em;
+}
+
+/* Custom Scrollbar - Purple Theme */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f3f4f6;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #131318;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #635BFF;
+  border-radius: 5px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #7c72ff;
+}
+
+/* Selection Color */
+::selection {
+  background-color: rgba(99, 91, 255, 0.2);
+  color: #1E1E1E;
+}
+
+.dark ::selection {
+  background-color: rgba(124, 114, 255, 0.3);
+  color: #f5f5f7;
+}
+
+/* Focus Visible - Accessibility */
+*:focus-visible {
+  outline: 2px solid #635BFF;
+  outline-offset: 2px;
+}
+
+/* Dark Mode */
+.dark {
+  color-scheme: dark;
 }
