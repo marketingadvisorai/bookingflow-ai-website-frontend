@@ -5,23 +5,15 @@
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { ThemeToggle } from '@/components/shared/ThemeToggle';
+import { Navbar, Footer } from '@/components/layout';
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="border-b border-border">
-        <div className="container mx-auto px-4 md:px-8 py-4 flex items-center justify-between">
-          <h1 className="text-xl font-bold text-foreground">
-            BookingFlow AI
-          </h1>
-          <ThemeToggle />
-        </div>
-      </header>
+    <div className="min-h-screen bg-background flex flex-col">
+      <Navbar />
 
       {/* Main Content */}
-      <main className="container mx-auto px-4 md:px-8 py-20">
+      <main className="flex-1 container mx-auto px-4 md:px-8 py-20">
         <div className="max-w-4xl mx-auto text-center space-y-8">
           {/* Hero */}
           <div className="space-y-4">
@@ -108,14 +100,7 @@ export default function HomePage() {
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="border-t border-border py-8">
-        <div className="container mx-auto px-4 md:px-8 text-center">
-          <p className="text-muted-foreground text-sm">
-            2025 BookingFlow AI. All rights reserved.
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
