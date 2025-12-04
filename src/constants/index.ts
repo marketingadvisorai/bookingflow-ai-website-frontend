@@ -1,0 +1,6 @@
+/**
+ * Barrel export for constants.
+ */
+
+export { SITE_CONFIG, NAVIGATION } from './site';
+export { COLORS, SPACING, RADIUS, SHADOWS } from './design';
